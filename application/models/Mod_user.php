@@ -42,6 +42,14 @@ class Mod_user extends CI_Model {
         return $query->result_array();
     }
     
+    public function get_one_user($params)
+    {
+        $this->db->select($params['fields']); //select fields from db table
+        $query = $this->db->get_where($this->table,$params['conditions']);
+        
+        return $query->result_array();
+    }
+    
     public function delete($params)
     {
         foreach($params as $user_id)
@@ -57,6 +65,25 @@ class Mod_user extends CI_Model {
             
             $this->db->where($conditions);
             $this->db->update($this->table, $fields);
+        }
+    }
+
+    public function delete_permanently($params)
+    {
+        foreach($params as $user_id)
+        {
+/*
+            $fields=array(
+                'del_flag'=> 1, //update this field to 1 to mean it is deleted
+            );
+*/
+            //check if data exists
+            $conditions = array(
+                'id'=>$user_id,
+            );
+            
+            $this->db->where($conditions);
+            $this->db->delete($this->table);
         }
     }
 }

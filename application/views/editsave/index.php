@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>Welcome to CodeIgniter</title>
+	<title>Saving User</title>
 
 	<style type="text/css">
 
@@ -68,14 +68,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <body>
 
 <div id="container">
-	<h1>Staff Portal</h1>
+	<h1>Saving existing user</h1>
 
 	<div id="body">
-            <a href="/staffportal/index.php/register">Add/Update a user</a>
-            <br>
-            <a href="/staffportal/index.php/users">View all users</a>
 
-	</div>
+            <form action="editsave" method="POST">
+                <input readonly="true" type="text" name="user_id" placeholder="User ID" value="<?php echo $result_array['user_id']; ?>">
+                <input readonly="true" type="text" name="user_name" placeholder="User name" value="<?php echo $result_array['user_name']; ?>">
+                <xinput type="submit" name="submit" value="Save">
+            </form>            
+        </div>
 </div>
 
 </body>

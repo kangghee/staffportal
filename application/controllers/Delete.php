@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Users extends CI_Controller {
+class Delete extends CI_Controller {
 
         public function __construct() {
             parent::__construct();
@@ -14,25 +14,13 @@ class Users extends CI_Controller {
 	public function index()
 	{
             $user_id = NULL;
-            $delete = NULL;
-            $deletepermanently = NULL;
             
-            extract($_POST);
+            extract($_GET);
             
-            if (isset($delete))
-            {
-                //mark user as deleted
-                //var_dump($user_id);die;
-                $this->Mod_user->delete($user_id);
-            }
-            
-            if (isset($deletepermanently))
-            {
-                //mark user as deleted
-                //var_dump($user_id);die;
-                $this->Mod_user->delete_permanently($user_id);
-            }
-            
+            $user_id_array=array('user_id'=>$user_id);
+            //var_dump($user_id_array);
+            $this->Mod_user->delete($user_id_array);
+
             $this->load->view('welcome_message');
 
             //get data from table user to display

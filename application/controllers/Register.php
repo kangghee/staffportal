@@ -27,8 +27,26 @@ class Register extends CI_Controller {
                 //var_dump($user_name); die;
                 $this->Mod_user->update($params);
 		$this->load->view('welcome_message');
+                //get data from table user to display
+                $data['fields']=array(
+                    'id',
+                    'name',
+                    'created_date'
+                );
+                $data['conditions'] = array(
+                    'del_flag'=>0 //means it is not deleted
+                );
+
+                $data['order'] = 'created_date asc';
+
+                //get data from db
+                $data['results']=$this->Mod_user->get_users($data);
+
+                $this->load->view('Users/index', $data);
             }
-           
-            $this->load->view('Register/index');
+            else
+            {
+                $this->load->view('Register/index');
+            }
 	}
 }

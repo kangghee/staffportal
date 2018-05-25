@@ -3,23 +3,32 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Register extends CI_Controller {
 
+        public function __construct() {
+            parent::__construct();
+            
+            $this->load->model(array('Mod_user'));
+        }
 	/**
 	 * Index Page for this controller.
-	 *
-	 * Maps to the following URL
-	 * 		http://example.com/index.php/welcome
-	 *	- or -
-	 * 		http://example.com/index.php/welcome/index
-	 *	- or -
-	 * Since this controller is set as the default controller in
-	 * config/routes.php, it's displayed at http://example.com/
-	 *
-	 * So any other public methods not prefixed with an underscore will
-	 * map to /index.php/welcome/<method_name>
-	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
 	public function index()
 	{
-		$this->load->view('register/index');
+            $user_id=NULL;
+            $user_name=NULL;
+            $submit=NULL;
+            
+            extract($_POST);
+            
+            $params['user_id'] = $user_id;
+            $params['user_name'] = $user_name;
+            
+            if(isset($submit))
+            {
+                //var_dump($user_name); die;
+                $this->Mod_user->update($params);
+		$this->load->view('welcome_message');
+            }
+           
+            $this->load->view('Register/index');
 	}
 }

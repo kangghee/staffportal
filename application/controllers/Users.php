@@ -13,6 +13,21 @@ class Users extends CI_Controller {
 	 */
 	public function index()
 	{
+            $user_id = NULL;
+            $submit = NULL;
+            
+            extract($_POST);
+            
+            var_dump($submit);
+            var_dump($user_id);
+            
+            if (isset($submit))
+            {
+                //mark user as deleted
+                //var_dump($user_id);die;
+                $this->Mod_user->delete($user_id);
+            }
+            
             //get data from table user to display
             $data['fields']=array(
                 'id',

@@ -39,8 +39,24 @@ class Mod_user extends CI_Model {
         $this->db->order_by($params['order']);
         $query = $this->db->get_where($this->table,$params['conditions']);
         
-        
-        
         return $query->result_array();
+    }
+    
+    public function delete($params)
+    {
+        foreach($params as $user_id)
+        {
+            $fields=array(
+                'del_flag'=> 1, //update this field to 1 to mean it is deleted
+            );
+
+            //check if data exists
+            $conditions = array(
+                'id'=>$user_id,
+            );
+            
+            $this->db->where($conditions);
+            $this->db->update($this->table, $fields);
+        }
     }
 }

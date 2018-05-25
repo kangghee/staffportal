@@ -71,7 +71,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<h1>Users List</h1>
 
 	<div id="body">
-            <form action="users" method="POST">
+            <form action="Users" method="POST">
                 <table>
                     <thead>
                         <tr>
@@ -84,7 +84,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <?php foreach ($results as $user) { ?>
                         <tr>
                             <td>
-                                <input type="checkbox" name="user_id" />
+                                <input type="checkbox" name="user_id[]" value="<?php echo $user['id']; ?>" />
                             </td>
                             <td>
                                 <?php echo $user['name']; ?>
@@ -96,6 +96,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <?php } ?>
                     </tbody>
                 </table>
+                
+                <input type="submit" name="submit" value="Delete">
             </form>
             
           

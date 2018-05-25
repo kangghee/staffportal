@@ -33,8 +33,6 @@ class Users extends CI_Controller {
                 $this->Mod_user->delete_permanently($user_id);
             }
             
-            $this->load->view('welcome_message');
-
             //get data from table user to display
             $data['fields']=array(
                 'id',
@@ -50,6 +48,8 @@ class Users extends CI_Controller {
             //get data from db
             $data['results']=$this->Mod_user->get_users($data);
             
+            $this->load->view('templates/pageheader');
             $this->load->view('Users/index', $data);
+            $this->load->view('templates/pagefooter');
 	}
 }

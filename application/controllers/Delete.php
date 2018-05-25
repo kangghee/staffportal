@@ -21,8 +21,6 @@ class Delete extends CI_Controller {
             //var_dump($user_id_array);
             $this->Mod_user->delete($user_id_array);
 
-            $this->load->view('welcome_message');
-
             //get data from table user to display
             $data['fields']=array(
                 'id',
@@ -38,6 +36,9 @@ class Delete extends CI_Controller {
             //get data from db
             $data['results']=$this->Mod_user->get_users($data);
             
+            $this->load->view('templates/pageheader');
             $this->load->view('Users/index', $data);
+            $this->load->view('templates/pagefooter');
+            
 	}
 }

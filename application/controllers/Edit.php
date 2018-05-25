@@ -31,7 +31,9 @@ class Edit extends CI_Controller {
 
                 $data['results'] = $this->Mod_user->get_one_user($data);
                 
-                $this->load->view('Edit/index',$data);
+                $this->load->view('templates/pageheader');
+                $this->load->view('Edit/index', $data);
+                $this->load->view('templates/pagefooter');
             }
 	}
 }

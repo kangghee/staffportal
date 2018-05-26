@@ -5,6 +5,17 @@ class Mod_user extends CI_Model {
 
     protected $table='user';
     
+    public function add($params)
+    {
+        $fields=array(
+            'name'=> $params['user_name']
+        );
+        
+        //insert table
+        $fields['created_date']=date('Y-m-d H:i:s');
+        $this->db->insert($this->table, $fields);
+    }
+    
     public function update($params)
     {
         $fields=array(

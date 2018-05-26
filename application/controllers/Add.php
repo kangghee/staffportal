@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Register extends CI_Controller {
+class Add extends CI_Controller {
 
         public function __construct() {
             parent::__construct();
@@ -13,19 +13,19 @@ class Register extends CI_Controller {
 	 */
 	public function index()
 	{
-            $user_id=NULL;
+            //$user_id=NULL;
             $user_name=NULL;
             $submit=NULL;
             
             extract($_POST);
             
-            $params['user_id'] = $user_id;
+            //$params['user_id'] = $user_id;
             $params['user_name'] = $user_name;
             
             if(isset($submit))
             {
                 //var_dump($user_name); die;
-                $this->Mod_user->update($params);
+                $this->Mod_user->add($params);
                 //get data from table user to display
                 $data['fields']=array(
                     'id',
@@ -48,7 +48,7 @@ class Register extends CI_Controller {
             else
             {
                 $this->load->view('templates/pageheader');
-                $this->load->view('Register/index');
+                $this->load->view('Add/index');
                 $this->load->view('templates/pagefooter');
             }
 	}

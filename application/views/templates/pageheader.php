@@ -72,7 +72,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	<div id="body">
             [
-            <a href="/staffportal/index.php/register">Add a user</a>
+            <a href="/staffportal/index.php/add">Add a user</a>
             |
             <a href="/staffportal/index.php/users">View all users</a>
             ]

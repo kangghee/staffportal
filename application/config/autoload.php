@@ -59,6 +59,12 @@ $autoload['packages'] = array();
 |	$autoload['libraries'] = array('user_agent' => 'ua');
 */
 $autoload['libraries'] = array('database');
+/*
+ * kang. load key libraries here, like session, database, email, validation of 
+ * form, file uploading, calendaring, encryption, ftp, html table, image 
+ * manipulation, input and security, pagination, unit testing, user agent to 
+ * identify browser, zip
+ */
 
 /*
 | -------------------------------------------------------------------
@@ -89,7 +95,11 @@ $autoload['drivers'] = array();
 |
 |	$autoload['helper'] = array('url', 'file');
 */
-$autoload['helper'] = array();
+$autoload['helper'] = array('url'); 
+/*
+ * kang. load helpers like url, form, text, date, security, array, date, 
+ * directory, download, file, html, string, 
+ */
 
 /*
 | -------------------------------------------------------------------
@@ -132,4 +142,8 @@ $autoload['language'] = array();
 |
 |	$autoload['model'] = array('first_model' => 'first');
 */
-$autoload['model'] = array();
+$autoload['model'] = array(); 
+/*
+ * kang.consider loading all models here globally to save time from loading
+ * locally
+ */

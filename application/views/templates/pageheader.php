@@ -20,9 +20,24 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	<div id="body">
             [
+		<?php
+			$link_protocol = USE_SSL ? 'https' : NULL;
+
+			if( $this->router->default_controller == 'Welcome/home' )
+				echo '' . anchor( site_url('', $link_protocol ),'Home') . '|';
+		?>
+            
+		<?php
+			echo isset( $auth_user_id )
+				? logout_anchor('Welcome/logout', 'Logout')
+				: login_anchor('Welcome', 'Login', 'id="login-link"' );
+		?>
+            ]
+            [
             <a href="/staffportal/index.php/add">Add a user</a>
             |
             <a href="/staffportal/index.php/users">View all users</a>
             ]
             <br>
             <hr>
+

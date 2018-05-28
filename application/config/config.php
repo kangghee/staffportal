@@ -100,7 +100,7 @@ $config['charset'] = 'UTF-8';
 | setting this variable to TRUE (boolean).  See the user guide for details.
 |
 */
-$config['enable_hooks'] = FALSE;
+$config['enable_hooks'] = TRUE; //Kang. required by community_auth to be TRUE
 
 /*
 |--------------------------------------------------------------------------
@@ -324,7 +324,7 @@ $config['cache_query_string'] = FALSE;
 | https://codeigniter.com/user_guide/libraries/encryption.html
 |
 */
-$config['encryption_key'] = ''; //Kang. set this in production.  32 chars
+$config['encryption_key'] = 'ITA3TTUWLTDWWTBLMKSUCDIIS123O199'; //Kang. set this in production.  32 chars.  Required for community_auth.  Temporary string for now.
 
 /*
 |--------------------------------------------------------------------------

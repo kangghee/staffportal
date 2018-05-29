@@ -50,12 +50,12 @@ if( ! isset( $on_hold_message ) )
 
 	<div>
 
-		<label for="login_string" class="form_label">Username or Email</label>
+		<label for="login_string" class="form_label">Username or Email :</label>
 		<input type="text" name="login_string" id="login_string" class="form_input" autocomplete="off" maxlength="255" />
 
 		<br />
 
-		<label for="login_pass" class="form_label">Password</label>
+		<label for="login_pass" class="form_label">Password :</label>
 		<input type="password" name="login_pass" id="login_pass" class="form_input password" <?php 
 			if( config_item('max_chars_for_password') > 0 )
 				echo 'maxlength="' . config_item('max_chars_for_password') . '"'; 

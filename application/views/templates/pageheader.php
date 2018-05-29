@@ -11,6 +11,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             base_url='<?= base_url(); ?>';
 //]]>
         </script>
+        <noscript>
+            You will not be able to view this site if Javascript is not enabled.  
+            Please turn on Javascript to use this site.
+        </noscript>
+        <script>
+            var tcookie=new Date();
+            check_cookie=(tcookie.getTime() + '');
+            document.cookie="check_cookie=" + check_cookie + "; path=/";
+            if (document.cookie.indexOf(check_cookie,0) < 0) {
+                alert("If you continue at this site, you must allow cookies to\n\
+                be enabled in your web browser.  Otherwise you will not be \n\
+                able to view this site.");
+            }
+        </script>
 
 </head>
 <body>
